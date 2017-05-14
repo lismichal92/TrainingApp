@@ -2,6 +2,8 @@ package com.example.entity;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class CategoryDetails {
 
@@ -14,7 +16,7 @@ public class CategoryDetails {
 	private String name;
 	
 	//private String value;
-	
+	@JsonBackReference
 	@ManyToOne
 	private Category category;
 

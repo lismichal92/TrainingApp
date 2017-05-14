@@ -7,6 +7,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Product {
@@ -27,6 +28,7 @@ public class Product {
 	private  BigDecimal price;
 	
 	@OneToMany(mappedBy = "product")
+	@JsonManagedReference
 	private List<ProductDetails> productDetails;
 	
 

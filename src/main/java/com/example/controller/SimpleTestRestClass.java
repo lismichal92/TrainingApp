@@ -63,7 +63,20 @@ public class SimpleTestRestClass {
 		 */
 		ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(HttpStatus.OK);
 		return reponse;
+	}
+	
+	@RequestMapping(value = "/getProduct/", method = RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getProductById() {
+		log.info("INVOKE getProductById..");
+		dbGen.generateProduct(5);
 		
+		Product product =  productRepo.findProductById(2);
+		//ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(allProduct,HttpStatus.OK);
+		/*
+		 * TUTAJ BLAD JESZCZE NIE NAPRAWILEM , niE CHCE ZWROCIC JASON'A
+		 */
+		ResponseEntity<Product> reponse = new  ResponseEntity<>(product,HttpStatus.OK);
+		return reponse;
 	}
 	
 }

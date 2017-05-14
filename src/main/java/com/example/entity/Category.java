@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Category {
 
@@ -18,6 +20,7 @@ public class Category {
 	private Integer active;
 	
 	@OneToMany(mappedBy = "category")
+	@JsonManagedReference
 	private List<CategoryDetails> categoryDetails; 
 	
 	//private Category parentCategoryId;
