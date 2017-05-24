@@ -57,11 +57,8 @@ public class SimpleTestRestClass {
 		dbGen.generateProduct(5);
 		
 		List<Product> allProduct = (List<Product>) productRepo.findAll();
-		//ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(allProduct,HttpStatus.OK);
-		/*
-		 * TUTAJ BLAD JESZCZE NIE NAPRAWILEM , niE CHCE ZWROCIC JASON'A
-		 */
-		ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(HttpStatus.OK);
+
+		ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(allProduct,HttpStatus.OK);
 		return reponse;
 	}
 	
@@ -71,10 +68,7 @@ public class SimpleTestRestClass {
 		dbGen.generateProduct(5);
 		
 		Product product =  productRepo.findProductById(2);
-		//ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(allProduct,HttpStatus.OK);
-		/*
-		 * TUTAJ BLAD JESZCZE NIE NAPRAWILEM , niE CHCE ZWROCIC JASON'A
-		 */
+
 		ResponseEntity<Product> reponse = new  ResponseEntity<>(product,HttpStatus.OK);
 		return reponse;
 	}

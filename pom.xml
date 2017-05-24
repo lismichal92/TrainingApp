@@ -4,28 +4,30 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>shopApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo</name>
+	<name>shopApp</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.3.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring-cloud.version>Dalston.BUILD-SNAPSHOT</spring-cloud.version>
+		<spring-cloud-contract.version>1.1.1.BUILD-SNAPSHOT</spring-cloud-contract.version>
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -49,10 +51,47 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	<dependency>
-		<groupId>com.fasterxml.jackson.datatype</groupId>
-		<artifactId>jackson-datatype-jsr310</artifactId>
-	</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-rabbit -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-stream-test-support -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-test-support</artifactId>
+			<version>1.2.1.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-contract-verifier -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
+			<version>1.1.0.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+
+
+		<!-- tag::test_dep[] -->
+		<!-- <dependency> -->
+		<!-- <groupId>com.example</groupId> -->
+		<!-- <artifactId>beer-common</artifactId> -->
+		<!-- <version>${project.version}</version> -->
+		<!-- <scope>test</scope> -->
+		<!-- </dependency> -->
+		<!-- end::test_dep[] -->
+
+
 	</dependencies>
 
 	<build>
@@ -60,13 +99,53 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>		
+			</plugin>
+			<!-- SPRING CLOUD CONTRACT -->
+			<!-- tag::test_dep_in_plugin[] -->
+			<plugin>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+				<version>${spring-cloud-contract.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<packageWithBaseClasses>com.example</packageWithBaseClasses>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-contract-verifier</artifactId>
+						<version>${spring-cloud-contract.version}</version>
+					</dependency>
+					<!-- <dependency> -->
+					<!-- <groupId>com.example</groupId> -->
+					<!-- <artifactId>beer-common</artifactId> -->
+					<!-- <version>${project.version}</version> -->
+					<!-- <scope>compile</scope> -->
+					<!-- </dependency> -->
+				</dependencies>
+			</plugin>
+			<!-- end::test_dep_in_plugin[] -->
+
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.codehaus.gmavenplus</groupId> -->
+<!-- 				<artifactId>gmavenplus-plugin</artifactId> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>test-compile</goal>  tu rzuca blad-->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+			<!-- SPRING CLOUD CONTRACT -->
+
+
+
 		</plugins>
 		<resources>
- 
-        </resources>
-		
-	</build>
 
+		</resources>
+
+	</build>
 
 </project>
