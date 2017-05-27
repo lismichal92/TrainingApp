@@ -57,7 +57,7 @@ public class SimpleTestRestClass {
 		return reponse;
 	}
 	
-	@RequestMapping(value = "/getProduct/{numberOfProduct}",
+	@RequestMapping(value = "/getProduct/{id}",
 					method = RequestMethod.GET,
 					produces= MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getProductById(@PathVariable("id") int id) {
