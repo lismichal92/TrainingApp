@@ -41,8 +41,8 @@ public class CategoryRestController {
 	
 	@RequestMapping(value = "/countProductsOfCategory/",
 			method = RequestMethod.GET, 
-			produces = "application/json")
-	public ResponseEntity<List<Response_countProdoFCat>> getCountProductsoFCategory() {
+			produces= MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getCountProductsoFCategory() {
 		
 		List<Response_countProdoFCat> responseList = categoryService.getCountProductsoFALLCategory();
 		ResponseEntity<List<Response_countProdoFCat>> reponse = new ResponseEntity<>(responseList, HttpStatus.OK);
@@ -51,12 +51,14 @@ public class CategoryRestController {
 
 	@RequestMapping(value = "/countProductsOfCategory/{id}", 
 			method = RequestMethod.GET,
-			produces = "application/json")
-	public ResponseEntity<Response_countProdoFCat> getCountProductsoFCategory(
+			produces= MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<?> getCountProductsoFCategory(
 			@PathVariable("id") int id) {
 		
 		Response_countProdoFCat resp = categoryService.getCountProductsoFCategory(id);
-		ResponseEntity<Response_countProdoFCat> reponse = new ResponseEntity<>(resp, HttpStatus.OK);
+		Optional<Response_countProdoFCat> opt = Optional.of(resp);
+		opt.ifPresent(System.out::println);
+		ResponseEntity<Response_countProdoFCat> reponse = new ResponseEntity<>(opt.get(), HttpStatus.OK);
 		return reponse;
 	}
 	
