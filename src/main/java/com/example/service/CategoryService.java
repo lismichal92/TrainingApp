@@ -1,6 +1,6 @@
 package com.example.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.example.controller.reponse.category.Response_countProdoFCat;
 
@@ -8,6 +8,8 @@ public interface CategoryService {
 
 	public int getCountOfCategories();
 	
-	public ArrayList<Response_countProdoFCat> getCountProductsoFCategory();
+	public Response_countProdoFCat getCountProductsoFCategory(int id);
+
+	public List<Response_countProdoFCat> getCountProductsoFALLCategory();
 	
 }

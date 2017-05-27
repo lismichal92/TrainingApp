@@ -33,42 +33,37 @@ public class SimpleTestRestClass {
 		this.dbGen = dbGen;
 	}
 
-	@RequestMapping(value = "/test/", method = RequestMethod.GET)
-	public String getInfo() {
-		log.info("INVOKE getInfo..");
-		counter=counter+1;
-		Product p = new Product("BMW z "+counter.toString(),new BigDecimal("20800"),"RED","Lublin");
-		productRepo.save(p);
-		return "TEST!";
-	}
 	
 	@RequestMapping(value = "/generateCategories/", method = RequestMethod.GET)
 	public String generateCategories() {
 		log.info("INVOKE generateCategories..");
 		dbGen.addCategoriesAndDetails();
-
-		return "WYGENEROWANO KATEGORIE!";
 		
+		return "WYGENEROWANO KATEGORIE!";
 	}
 	
-	@RequestMapping(value = "/generateProduct/", method = RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/generateProduct/",
+			method = RequestMethod.GET,
+			produces= MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> generateProduct() {
-		log.info("INVOKE generateProduct..");
-		dbGen.generateProduct(5);
 		
+		log.info("INVOKE generateProduct..");
+		
+		dbGen.generateProduct(5);
 		List<Product> allProduct = (List<Product>) productRepo.findAll();
-
 		ResponseEntity<List<Product>> reponse = new  ResponseEntity<>(allProduct,HttpStatus.OK);
 		return reponse;
 	}
 	
-	@RequestMapping(value = "/getProduct/", method = RequestMethod.GET, produces= MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/getProduct/",
+			method = RequestMethod.GET,
+			produces= MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<?> getProductById() {
-		log.info("INVOKE getProductById..");
-		dbGen.generateProduct(5);
 		
+		log.info("INVOKE getProductById..");
+		
+		dbGen.generateProduct(5);
 		Product product =  productRepo.findProductById(2);
-
 		ResponseEntity<Product> reponse = new  ResponseEntity<>(product,HttpStatus.OK);
 		return reponse;
 	}
