@@ -22,8 +22,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<spring-cloud.version>Dalston.BUILD-SNAPSHOT</spring-cloud.version>
-		<spring-cloud-contract.version>1.1.1.BUILD-SNAPSHOT</spring-cloud-contract.version>
+		<spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
+		<spring-cloud-contract.version>1.1.0.RELEASE</spring-cloud-contract.version>
 	</properties>
 
 	<dependencies>
@@ -56,15 +56,12 @@
 			<artifactId>jackson-datatype-jsr310</artifactId>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-stream-rabbit -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-stream-rabbit</artifactId>
 			<version>1.2.0.RELEASE</version>
 		</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-stream-test-support -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-stream-test-support</artifactId>
@@ -72,25 +69,12 @@
 			<scope>test</scope>
 		</dependency>
 
-
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-contract-verifier -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-contract-verifier</artifactId>
 			<version>1.1.0.RELEASE</version>
 			<scope>test</scope>
 		</dependency>
-
-
-		<!-- tag::test_dep[] -->
-		<!-- <dependency> -->
-		<!-- <groupId>com.example</groupId> -->
-		<!-- <artifactId>beer-common</artifactId> -->
-		<!-- <version>${project.version}</version> -->
-		<!-- <scope>test</scope> -->
-		<!-- </dependency> -->
-		<!-- end::test_dep[] -->
-
 
 	</dependencies>
 
@@ -100,8 +84,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- SPRING CLOUD CONTRACT -->
-			<!-- tag::test_dep_in_plugin[] -->
 			<plugin>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-contract-maven-plugin</artifactId>

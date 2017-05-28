@@ -6,10 +6,10 @@ import com.example.controller.reponse.category.Response_countProdoFCat;
 
 public interface CategoryService {
 
-	public int getCountOfCategories();
+	int getCountOfCategories();
 	
-	public Response_countProdoFCat getCountProductsoFCategory(int id);
+	Response_countProdoFCat getCountProductsoFCategory(int id);
 
-	public List<Response_countProdoFCat> getCountProductsoFALLCategory();
+	List<Response_countProdoFCat> getCountProductsoFALLCategory();
 	
 }

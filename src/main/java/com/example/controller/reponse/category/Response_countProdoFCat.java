@@ -1,16 +1,16 @@
 package com.example.controller.reponse.category;
 
 public class Response_countProdoFCat {
-	public String categorName;
+	public String categoryName;
 	public int categoryId;
 	public long productCount;
 
 	public String getCategorName() {
-		return categorName;
+		return categoryName;
 	}
 
 	public void setCategorName(String categorName) {
-		this.categorName = categorName;
+		this.categoryName = categorName;
 	}
 
 	public int getCategoryId() {
@@ -30,14 +30,14 @@ public class Response_countProdoFCat {
 	}
 
 	public Response_countProdoFCat(String categorName, int categoryId, long productCount) {
-		this.categorName = categorName;
+		this.categoryName = categorName;
 		this.categoryId = categoryId;
 		this.productCount = productCount;
 	}
 
 	@Override
 	public String toString() {
-		return "Response_countProdoFCat [categorName=" + categorName + ", categoryId=" + categoryId + ", productCount="
+		return "Response_countProdoFCat [categorName=" + categoryName + ", categoryId=" + categoryId + ", productCount="
 				+ productCount + "]";
 	}
 
