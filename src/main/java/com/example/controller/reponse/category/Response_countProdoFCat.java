@@ -5,13 +5,6 @@ public class Response_countProdoFCat {
 	public int categoryId;
 	public long productCount;
 
-	public String getCategorName() {
-		return categoryName;
-	}
-
-	public void setCategorName(String categorName) {
-		this.categoryName = categorName;
-	}
 
 	public int getCategoryId() {
 		return categoryId;
@@ -29,15 +22,15 @@ public class Response_countProdoFCat {
 		this.productCount = productCount;
 	}
 
-	public Response_countProdoFCat(String categorName, int categoryId, long productCount) {
-		this.categoryName = categorName;
+	public Response_countProdoFCat(String categoryName, int categoryId, long productCount) {
+		this.categoryName = categoryName;
 		this.categoryId = categoryId;
 		this.productCount = productCount;
 	}
 
 	@Override
 	public String toString() {
-		return "Response_countProdoFCat [categorName=" + categoryName + ", categoryId=" + categoryId + ", productCount="
+		return "Response_countProdoFCat [categoryName=" + categoryName + ", categoryId=" + categoryId + ", productCount="
 				+ productCount + "]";
 	}
 

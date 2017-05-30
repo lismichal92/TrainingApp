@@ -1,9 +1,9 @@
-package contracts.product
+package contracts.category
 
 org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'GET'
-        url 'category/countProductsOfCategory/1'
+        url 'category/countProductsOfCategory/'
         body(["""
             """
         ])
@@ -17,9 +17,18 @@ org.springframework.cloud.contract.spec.Contract.make {
 
         body("""
           {
-             "categoryName":"testCategory",
-             "categoryId":1,
-             "productCount":1
+	        "content" :  [
+					        {
+					          "categoryName":"Motoryzacja",
+					             "categoryId":111,
+					             "productCount":111
+					        },
+					        {
+					          "categorName":"Elektronika",
+					             "categoryId":222,
+					             "productCount":222
+					        }
+	        			]
           }
 
             """)
