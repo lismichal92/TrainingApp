@@ -17,18 +17,19 @@ org.springframework.cloud.contract.spec.Contract.make {
 
         body("""
           {
-	        "content" :  [
-					        {
-					          "categoryName":"Motoryzacja",
-					             "categoryId":111,
-					             "productCount":111
-					        },
-					        {
-					          "categorName":"Elektronika",
-					             "categoryId":222,
-					             "productCount":222
-					        }
-	        			]
+	         "":[
+ 					        {
+ 					          "categoryName":"Motoryzacja",
+ 					             "categoryId":111,
+ 					             "productCount":111
+ 					        },
+ 					        {
+ 				          "categorName":"Elektronika",
+ 					             "categoryId":222,
+ 					             "productCount":222
+ 					        }
+ 	        			]
+			
           }
 
             """)

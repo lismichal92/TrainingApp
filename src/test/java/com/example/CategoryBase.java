@@ -42,8 +42,8 @@ public abstract class CategoryBase {
 	        MockitoAnnotations.initMocks(this);
 	       
 	       List <Response_countProdoFCat> respList = new ArrayList<>();
+	       respList.add(new Response_countProdoFCat("Elektronika", 222,222L));
 	       respList.add(new Response_countProdoFCat("Motoryzacja", 111, 111L));
-	       respList.add(new Response_countProdoFCat("Elektronika", 222, 222L));
 	       
 	       given(CategoryServiceImpl.getCountProductsoFALLCategory()).willReturn(respList);
 
