@@ -27,6 +27,9 @@ public class Response_countProdoFCat {
 		this.categoryId = categoryId;
 		this.productCount = productCount;
 	}
+	
+	public Response_countProdoFCat() {
+	}
 
 	@Override
 	public String toString() {

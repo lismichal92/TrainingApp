@@ -16,22 +16,8 @@ org.springframework.cloud.contract.spec.Contract.make {
         status 200
 
         body("""
-          {
-	         "":[
- 					        {
- 					          "categoryName":"Motoryzacja",
- 					             "categoryId":111,
- 					             "productCount":111
- 					        },
- 					        {
- 				          "categorName":"Elektronika",
- 					             "categoryId":222,
- 					             "productCount":222
- 					        }
- 	        			]
-			
-          }
-
+                  [{"categoryName":"Elektronika","categoryId":222,"productCount":222},
+                  {"categoryName":"Motoryzacja","categoryId":111,"productCount":111}]
             """)
 
         headers {

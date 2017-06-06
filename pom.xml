@@ -76,6 +76,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.6</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -108,17 +115,17 @@
 			</plugin>
 			<!-- end::test_dep_in_plugin[] -->
 
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.codehaus.gmavenplus</groupId> -->
-<!-- 				<artifactId>gmavenplus-plugin</artifactId> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>test-compile</goal>  tu rzuca blad-->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
+			<!-- <plugin> -->
+			<!-- <groupId>org.codehaus.gmavenplus</groupId> -->
+			<!-- <artifactId>gmavenplus-plugin</artifactId> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <goals> -->
+			<!-- <goal>test-compile</goal> tu rzuca blad -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
 			<!-- SPRING CLOUD CONTRACT -->
 
 
